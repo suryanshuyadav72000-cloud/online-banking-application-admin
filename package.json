@@ -1,0 +1,11 @@
+{
+  "name": "online-banking-application-admin",
+  "version": "1.0.0",
+  "description": "Online Banking Application Admin deployed on Vercel",
+  "main": "api/customers.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {}
+}

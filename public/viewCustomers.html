@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>View Customers</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+<div class="container" style="width: 80%; max-width: 800px;">
+
+<h2>Customer List</h2>
+
+<table border="1" id="customerTable">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Account</th>
+            <th>Mobile</th>
+            <th>Balance</th>
+        </tr>
+    </thead>
+    <tbody id="tableBody">
+        <tr><td colspan="5">Loading customer data...</td></tr>
+    </tbody>
+</table>
+
+<br>
+<p><a href="/AdminDashboard.html">Back to Dashboard</a></p>
+
+</div>
+
+<script>
+  fetch('/api/customers')
+    .then(res => res.json())
+    .then(data => {
+      const tbody = document.getElementById('tableBody');
+      if (!data || data.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="5">No customers found</td></tr>';
+        return;
+      }
+      tbody.innerHTML = data.map(c => `
+        <tr>
+          <td>${c.id}</td>
+          <td>${c.name}</td>
+          <td>${c.account}</td>
+          <td>${c.mobile}</td>
+          <td>₹ ${parseFloat(c.balance).toFixed(2)}</td>
+        </tr>
+      `).join('');
+    })
+    .catch(err => {
+      document.getElementById('tableBody').innerHTML = '<tr><td colspan="5">Error loading customer list</td></tr>';
+    });
+</script>
+
+</body>
+</html>
