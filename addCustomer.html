@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Add Customer</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="container">
+
+<h2>Add New Customer</h2>
+
+<form action="/api/customers?action=add" method="post">
+
+    Customer Name:<br>
+    <input type="text" name="name" required><br><br>
+
+    Account Number:<br>
+    <input type="text" name="account" required><br><br>
+
+    Mobile Number:<br>
+    <input type="text" name="mobile" required><br><br>
+
+    Balance:<br>
+    <input type="number" step="0.01" name="balance" required><br><br>
+
+    <input type="submit" value="Add Customer">
+
+</form>
+<br>
+<a href="/AdminDashboard.html">Back to Dashboard</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Deposit Money</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="container">
+
+<h2>Deposit Money</h2>
+
+<form action="/api/deposit" method="post">
+
+    Account Number:<br>
+    <input type="text" name="account" required><br><br>
+
+    Deposit Amount:<br>
+    <input type="number" name="amount" step="0.01" required><br><br>
+
+    <input type="submit" value="Deposit">
+
+</form>
+
+<br>
+<a href="/AdminDashboard.html">Back to Dashboard</a>
+</div>
+
+</body>
+</html>
